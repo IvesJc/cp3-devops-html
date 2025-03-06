@@ -27,6 +27,7 @@
             margin: 10px;
             cursor: pointer;
             position: absolute;
+            transition: opacity 0.2s ease-in-out;
         }
         #zero {
             left: 50px;
@@ -43,14 +44,19 @@
     <script>
         function moverBotao() {
             let botao = document.getElementById('zero');
-            let larguraTela = window.innerWidth - botao.clientWidth;
-            let alturaTela = window.innerHeight - botao.clientHeight;
+            botao.style.opacity = 0;
             
-            let novaPosicaoX = Math.random() * larguraTela;
-            let novaPosicaoY = Math.random() * alturaTela;
-            
-            botao.style.left = `${novaPosicaoX}px`;
-            botao.style.top = `${novaPosicaoY}px`;
+            setTimeout(() => {
+                let larguraTela = window.innerWidth - botao.clientWidth - 20;
+                let alturaTela = window.innerHeight - botao.clientHeight - 20;
+                
+                let novaPosicaoX = Math.random() * larguraTela;
+                let novaPosicaoY = Math.random() * alturaTela;
+                
+                botao.style.left = `${novaPosicaoX}px`;
+                botao.style.top = `${novaPosicaoY}px`;
+                botao.style.opacity = 1;
+            }, 200);
         }
     </script>
 </body>
