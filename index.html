@@ -15,12 +15,11 @@
             font-family: Arial, sans-serif;
             text-align: center;
             overflow: hidden;
+            position: relative;
         }
         .buttons {
             position: relative;
             margin-top: 20px;
-            width: 300px;
-            height: 100px;
         }
         button {
             font-size: 20px;
@@ -39,16 +38,16 @@
     <h1>Qual nota o Ives merece tirar?</h1>
     <div class="buttons">
         <button id="zero" onmouseover="moverBotao()">0</button>
-        <button style="right: 50px; top: 30px;" onclick="alert('Isso mesmo! Nota 10 para o Ives!')">10</button>
+        <button onclick="alert('Isso mesmo! Nota 10 para o Ives!')">10</button>
     </div>
     <script>
         function moverBotao() {
             let botao = document.getElementById('zero');
-            let larguraContainer = document.querySelector('.buttons').clientWidth - botao.clientWidth;
-            let alturaContainer = document.querySelector('.buttons').clientHeight - botao.clientHeight;
+            let larguraTela = window.innerWidth - botao.clientWidth;
+            let alturaTela = window.innerHeight - botao.clientHeight;
             
-            let novaPosicaoX = Math.random() * larguraContainer;
-            let novaPosicaoY = Math.random() * alturaContainer;
+            let novaPosicaoX = Math.random() * larguraTela;
+            let novaPosicaoY = Math.random() * alturaTela;
             
             botao.style.left = `${novaPosicaoX}px`;
             botao.style.top = `${novaPosicaoY}px`;
