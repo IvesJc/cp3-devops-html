@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nota do Ives</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .buttons {
+            position: relative;
+            margin-top: 20px;
+        }
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        #zero {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <h1>Qual nota o Ives merece tirar?</h1>
+    <div class="buttons">
+        <button id="zero" onmouseover="moverBotao()">0</button>
+        <button onclick="alert('Isso mesmo! Nota 10 para o Ives!')">10</button>
+    </div>
+    <script>
+        function moverBotao() {
+            let botao = document.getElementById('zero');
+            let larguraTela = window.innerWidth - botao.clientWidth;
+            let alturaTela = window.innerHeight - botao.clientHeight;
+            
+            let novaPosicaoX = Math.random() * larguraTela;
+            let novaPosicaoY = Math.random() * alturaTela;
+            
+            botao.style.left = `${novaPosicaoX}px`;
+            botao.style.top = `${novaPosicaoY}px`;
+        }
+    </script>
+</body>
+</html>
